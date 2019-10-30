@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_width= "match_parent"
     android:layout_margin="12dp"
-    card_view:cardBackgroundColor="@color/button_default"
+    card_view:cardBackgroundColor="@color/transparent"
     card_view:cardCornerRadius="12dp"
     card_view:cardElevation="60dp"
     >
@@ -19,10 +19,10 @@
         <TextView
             android:id="@+id/registered_item_exam_name"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2"
-            android:gravity="center_vertical"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
             android:textAlignment="center"
+            android:textColor="#000000"
             android:textSize="20sp"
             tools:text="Exam Name" />
 
@@ -36,7 +36,9 @@
                 android:id="@+id/registered_item_exam_date"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
+                android:paddingLeft="15dp"
+                android:layout_weight="0.6"
+                android:textColor="#000000"
                 android:textSize="18sp"
                 tools:text="Exam Date" />
 
@@ -44,7 +46,9 @@
                 android:id="@+id/registered_item_exam_duration"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="0.6"
+                android:paddingRight="15dp"
+                android:textColor="#000000"
                 android:gravity="right"
                 android:textSize="18sp"
                 tools:text="Exam Duration" />
@@ -61,7 +65,9 @@
                 android:id="@+id/registered_item_exam_status_field"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="0.6"
+                android:textColor="#000000"
+                android:paddingLeft="15dp"
                 android:text="Status"
                 android:textSize="18sp"
                 />
@@ -70,10 +76,12 @@
                 android:id="@+id/registered_item_exam_status"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
+                android:paddingRight="15dp"
+                android:layout_weight="0.6"
                 android:gravity="right"
+                android:textColor="#000000"
                 android:textSize="18sp"
-                tools:text="Not Accepted" />
+                tools:text="Not Yet Accepted" />
 
         </LinearLayout>
 
