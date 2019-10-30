@@ -73,7 +73,7 @@ public class StudentUpdateDetails extends AppCompatActivity {
                            // if(insert==true)
                            // {
                                 Toast.makeText(getApplicationContext(),"Updated Successfully", Toast.LENGTH_SHORT).show();
-                                Intent suc_reg =new Intent(getBaseContext(), Student_Navigation_drawer.class);
+                                Intent suc_reg =new Intent(getBaseContext(), StudentProfile.class);
                                 //suc_reg.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(suc_reg);
                            // }
