@@ -79,12 +79,11 @@ public class Teacher_YourExam extends AppCompatActivity implements TeacherExamRe
     @Override
     public void OnTeacherExamClick(int position) {
         TeacherExam temp = listExam.get(position);
-        Intent intent = new Intent(this,Student_ViewExam.class);
+        Intent intent = new Intent(this,TeacherApproveExam.class);
         intent.putExtra("EID", temp.getEid());
         intent.putExtra("SID", temp.getSid());
         intent.putExtra("Ename", temp.getEname());
         intent.putExtra("Edate", temp.getEdate());
-        intent.putExtra("Sname", temp.getSname());
         intent.putExtra("Smail", temp.getSmail());
         startActivity(intent);
 

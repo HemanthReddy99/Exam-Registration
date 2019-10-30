@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.strictmode.SqliteObjectLeakedViolation;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -792,7 +794,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
 
-        String query_to_be_given = "select EID, Ename, Edate, Eduration, Status from Exams,Registrations where Exams.EID = Registrations.EID AND Registration.SID = ?";
+        String query_to_be_given = "select Exams.EID, Ename, Edate, Eduration, Status from Exams,Registrations where Exams.EID = Registrations.EID AND Registrations.SID = ?";
 
         Cursor queryview = db.rawQuery(query_to_be_given, new String[]{sid});
 
@@ -857,5 +859,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
         return teacherExamList;
+    }
+
+    public void teacherApproveExam(String sid, String eid)
+    {
+        String aid = "";
+
+        Cursor cursor = this.getReadableDatabase().query("Admin",new String[]{"AID","AID"},"loggedin = 'yes'",null,null,null,null);
+        if(cursor.moveToFirst()){
+            do {
+                aid = cursor.getString(1);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("update Registrations set Status = 'Approved' where AID=? AND SID=? AND EID=?", new String[]{aid,sid,eid});
+
     }
 }

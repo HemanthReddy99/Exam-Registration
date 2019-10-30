@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class StudentRegistered extends AppCompatActivity implements RegisteredExamRecyclerAdapter.OnRegisteredExamClickListener{
+public class StudentRegistered extends AppCompatActivity {
 
     private AppCompatActivity activity = StudentRegistered.this;
     Context context = StudentRegistered.this;
@@ -44,7 +44,7 @@ public class StudentRegistered extends AppCompatActivity implements RegisteredEx
     private void initObjects()
     {
         listExam = new ArrayList<>();
-        examRecyclerAdapter = new RegisteredExamRecyclerAdapter(listExam,this,this);
+        examRecyclerAdapter = new RegisteredExamRecyclerAdapter(listExam,this);
 
         RecyclerView.LayoutManager mlayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerViewExam.setLayoutManager(mlayoutManager);
@@ -76,19 +76,19 @@ public class StudentRegistered extends AppCompatActivity implements RegisteredEx
         }.execute();
     }
 
-    @Override
-    public void OnRegisteredExamClick(int position) {
-        RegisteredExam temp = listExam.get(position);
-
-        Intent intent = new Intent(this,Student_ViewExam.class);
-        intent.putExtra("EID", temp.getEid());
-        intent.putExtra("Status", temp.getStatus());
-        intent.putExtra("Ename", temp.getExamName());
-        intent.putExtra("Edate", temp.getExamDate());
-        intent.putExtra("Eduration", temp.getExamDuration());
-        startActivity(intent);
-
-    }
+//    @Override
+//    public void OnRegisteredExamClick(int position) {
+//        RegisteredExam temp = listExam.get(position);
+//
+//        Intent intent = new Intent(this,StudentProfile.class);
+//        intent.putExtra("EID", temp.getEid());
+//        intent.putExtra("Status", temp.getStatus());
+//        intent.putExtra("Ename", temp.getExamName());
+//        intent.putExtra("Edate", temp.getExamDate());
+//        intent.putExtra("Eduration", temp.getExamDuration());
+//        startActivity(intent);
+//
+//    }
 }
 
 

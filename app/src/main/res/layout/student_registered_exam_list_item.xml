@@ -51,6 +51,32 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.3"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/registered_item_exam_status_field"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Status"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/registered_item_exam_status"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="right"
+                android:textSize="18sp"
+                tools:text="Not Accepted" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

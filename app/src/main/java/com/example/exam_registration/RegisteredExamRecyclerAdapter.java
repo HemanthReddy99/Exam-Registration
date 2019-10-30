@@ -16,38 +16,38 @@ public class RegisteredExamRecyclerAdapter extends RecyclerView.Adapter<Register
     private ArrayList<RegisteredExam> registeredExamArrayList;
     private Context mContext;
     private ArrayList<RegisteredExam> mFilteredList;
-    private OnRegisteredExamClickListener monRegisteredExamClickListener;
 
-    public RegisteredExamRecyclerAdapter(ArrayList<RegisteredExam> exams, Context mContext, OnRegisteredExamClickListener onExamClickListener)
+    public RegisteredExamRecyclerAdapter(ArrayList<RegisteredExam> exams, Context mContext)
     {
         this.registeredExamArrayList = exams;
         this.mContext = mContext;
         this.mFilteredList = exams;
-        this.monRegisteredExamClickListener = onExamClickListener;
+
     }
 
-    public class RegisteredExamViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    public class RegisteredExamViewHolder extends RecyclerView.ViewHolder
     {
         public TextView ename;
         public TextView edate;
         public TextView eduration;
-        OnRegisteredExamClickListener onExamClickListener;
+        public TextView status;
 
-        public RegisteredExamViewHolder(View view, OnRegisteredExamClickListener onExamClickListener)
+        public RegisteredExamViewHolder(View view)
         {
             super(view);
             ename = view.findViewById(R.id.registered_item_exam_name);
             edate = view.findViewById(R.id.registered_item_exam_date);
             eduration = view.findViewById(R.id.registered_item_exam_duration);
-            this.onExamClickListener = onExamClickListener;
+            status = view.findViewById(R.id.registered_item_exam_status);
 
-            view.setOnClickListener(this);
+
+
         }
 
-        @Override
-        public void onClick(View view) {
-            onExamClickListener.OnRegisteredExamClick(getAdapterPosition());
-        }
+//        @Override
+//        public void onClick(View view) {
+//            onExamClickListener.OnRegisteredExamClick(getAdapterPosition());
+//        }
     }
 
     @NonNull
@@ -57,7 +57,7 @@ public class RegisteredExamRecyclerAdapter extends RecyclerView.Adapter<Register
                 .inflate(R.layout.student_registered_exam_list_item,parent,false);
 
 
-        return  new RegisteredExamRecyclerAdapter.RegisteredExamViewHolder(itemView,monRegisteredExamClickListener);
+        return  new RegisteredExamRecyclerAdapter.RegisteredExamViewHolder(itemView);
     }
 
     @Override
@@ -66,6 +66,7 @@ public class RegisteredExamRecyclerAdapter extends RecyclerView.Adapter<Register
         holder.ename.setText(registeredExamArrayList.get(position).getExamName());
         holder.edate.setText(registeredExamArrayList.get(position).getExamDate());
         holder.eduration.setText(registeredExamArrayList.get(position).getExamDuration());
+        holder.status.setText(registeredExamArrayList.get(position).getStatus());
 
 
     }
@@ -75,10 +76,10 @@ public class RegisteredExamRecyclerAdapter extends RecyclerView.Adapter<Register
         return mFilteredList.size();
     }
 
-    public interface OnRegisteredExamClickListener
-    {
-        void OnRegisteredExamClick(int position);
-    }
+//    public interface OnRegisteredExamClickListener
+//    {
+//        void OnRegisteredExamClick(int position);
+//    }
 
 }
 
