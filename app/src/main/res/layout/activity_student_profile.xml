@@ -247,6 +247,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/gridlayout"
             android:gravity="center"
+            android:id="@+id/llayout"
             android:background="@color/endblue"
             >
 
@@ -266,6 +267,23 @@
                 android:src="@drawable/exit"
                 android:id="@+id/profilelogout1"
                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llayout">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delete Account"
+                android:textColor="#ffffff"
+                android:background="@color/common_google_signin_btn_text_dark_default"
+                android:textAlignment="center"
+                android:textSize="18dp"
+                android:id="@+id/studentdelete"></TextView>
+
         </LinearLayout>
 
     </RelativeLayout>

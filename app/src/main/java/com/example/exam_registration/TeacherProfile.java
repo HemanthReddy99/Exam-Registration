@@ -9,9 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TeacherProfile extends AppCompatActivity {
-    TextView v1,v2,v3;
+    TextView v1,v2,v3,v4;
     DatabaseHelper db = new DatabaseHelper(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class TeacherProfile extends AppCompatActivity {
         v1 = findViewById(R.id.profilename);
         v2 = findViewById(R.id.profileemail);
         v3 = findViewById(R.id.profilephno);
+        v4 = findViewById(R.id.teacherdelete);
 
         v1.setText(db.admingetusername());
         v2.setText(db.admingetusermail());
@@ -91,6 +93,18 @@ public class TeacherProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TeacherProfile.this,TeacherUpdateDetails.class);
+                startActivity(intent);
+            }
+        });
+
+        v4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Teacher Deleted Successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(TeacherProfile.this,MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                String ID = db.admingetuserid();
+                db.admindelete(ID);
                 startActivity(intent);
             }
         });

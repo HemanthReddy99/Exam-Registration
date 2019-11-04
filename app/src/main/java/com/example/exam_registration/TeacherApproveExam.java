@@ -51,7 +51,6 @@ public class TeacherApproveExam extends AppCompatActivity {
 
                 db.teacherApproveExam(SID,EID);
                 Toast.makeText(getApplicationContext(),"Student Approved!", Toast.LENGTH_SHORT).show();
-
                 Intent intent = new Intent(getApplicationContext(),TeacherProfile.class);
                 startActivity(intent);
             }

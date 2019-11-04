@@ -71,7 +71,9 @@ public class Student_ViewExam extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Did Not Register Properly, Try Again",Toast.LENGTH_SHORT);
                 }
 
-
+                Toast.makeText(getApplicationContext(), " Already Registered", Toast.LENGTH_SHORT).show();
+                Intent tp1intent = new Intent(getBaseContext(), StudentProfile.class);
+                startActivity(tp1intent);
 
             }
         });
