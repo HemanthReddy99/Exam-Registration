@@ -10,6 +10,8 @@ import android.os.strictmode.SqliteObjectLeakedViolation;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -946,6 +948,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        db.execSQL("delete from Registrations where SID = ?",new String[]{ID});
         //return;
     }
+
+
+
 
 
 }
