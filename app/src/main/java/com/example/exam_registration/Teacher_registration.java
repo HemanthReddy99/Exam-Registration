@@ -14,6 +14,8 @@ public class Teacher_registration extends AppCompatActivity {
     DatabaseHelper adminDb;
     EditText Amail,Afname,Amname,Alname,Adob,Aphno,Adept,AID,Aadd1,Aadd2,Aadd3,Apass,Arepass;
     Button Aregister;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String mobilePattern = "[0-9]{10}";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,14 @@ public class Teacher_registration extends AppCompatActivity {
                 if(email.equals("") || fname.equals("") || mname.equals("") || lname.equals("") || dob.equals("") || phno.equals("") || dept.equals("") || rollno.equals("") || add1.equals("") || add2.equals("") || add3.equals("") || pass.equals("") || repass.equals(""))
                 {
                     Toast.makeText(getApplicationContext(), "One or more fields empty", Toast.LENGTH_SHORT).show();
+                }
+                else if(!email.matches(emailPattern))
+                {
+                    Toast.makeText(getApplicationContext(), "Email Format not correct", Toast.LENGTH_SHORT).show();
+                }
+                else if(!phno.matches(mobilePattern))
+                {
+                    Toast.makeText(getApplicationContext(), "Enter Mobile number correctly", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {

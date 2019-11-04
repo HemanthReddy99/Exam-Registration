@@ -59,19 +59,25 @@ public class Student_ViewExam extends AppCompatActivity {
             public void onClick(View view) {
 
                 insert = db.insert_student_applied(SID,EID,AID);
+                int flag = 0;
 
                 if(insert)
                 {
+                    flag = 1;
                     Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
                     Intent tpintent = new Intent(getBaseContext(), StudentProfile.class);
                     startActivity(tpintent);
                 }
                 else
                 {
+                    flag =1;
                     Toast.makeText(getApplicationContext(),"Did Not Register Properly, Try Again",Toast.LENGTH_SHORT);
                 }
 
-                Toast.makeText(getApplicationContext(), " Already Registered", Toast.LENGTH_SHORT).show();
+                if(flag==0) {
+                    Toast.makeText(getApplicationContext(), " Already Registered", Toast.LENGTH_SHORT).show();
+
+                }
                 Intent tp1intent = new Intent(getBaseContext(), StudentProfile.class);
                 startActivity(tp1intent);
 
