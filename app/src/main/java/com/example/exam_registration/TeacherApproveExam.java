@@ -56,5 +56,20 @@ public class TeacherApproveExam extends AppCompatActivity {
             }
         });
 
+        TextView v1 = findViewById(R.id.teacherdeleteexam);
+
+        v1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Exam Deleted Successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(TeacherApproveExam.this,TeacherProfile.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                db.admindeleteexam(EID);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 }

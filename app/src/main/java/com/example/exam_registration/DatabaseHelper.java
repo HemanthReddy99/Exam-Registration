@@ -931,4 +931,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        db.execSQL("delete from Registrations where SID = ?",new String[]{ID});
         //return;
     }
+
+    public void admindeleteexam (String ID) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        //db.delete("Admin","AID = ? ",new String[]{ID});
+        //db.delete("AdminLogin","AID = ?", new String[]{ID});
+        //db.delete("Applies","AID = ?", new String[]{ID});
+        db.delete("Exams","EID = ?", new String[]{ID});
+        db.delete("Applies","EID = ?", new String[]{ID});
+        db.delete("Registrations","EID = ?", new String[]{ID});
+        //db.execSQL("delete from Student where loggedin = ?",new String[]{"yes"});
+//        db.execSQL("delete from StudentLogin where loggedin = ?",new String[]{"yes"});
+//        db.execSQL("delete from Applies where SID = ?",new String[]{ID});
+//        db.execSQL("delete from Registrations where SID = ?",new String[]{ID});
+        //return;
+    }
+
+
 }

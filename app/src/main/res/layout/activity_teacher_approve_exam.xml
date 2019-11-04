@@ -324,6 +324,17 @@
             android:layout_marginBottom="16dp"
             android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:text="Delete Exam"
+            android:textColor="#ffffff"
+            android:background="@color/common_google_signin_btn_text_dark_default"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:id="@+id/teacherdeleteexam"></TextView>
+
 <!--            <Button-->
 <!--                android:id="@+id/teacher_approve_exam_button"-->
 <!--                android:layout_width="match_parent"-->
@@ -335,6 +346,11 @@
 
 
         </LinearLayout>
+
+
+
+
+
 
 
     </LinearLayout>
